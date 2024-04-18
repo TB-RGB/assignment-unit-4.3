@@ -32,6 +32,15 @@ function isFull(){
     }
 }
 
+function removeItem(item){
+    if (basket.indexOf(item) != -1){
+        basket.splice(basket.indexOf(item),1);
+        return item;
+    } else {
+        return null;
+    }
+}
+
 console.log(`Basket is ${basket}`);
 console.log('Adding tacos (expect true)', addItem('tacos'));
 console.log(`Basket is ${basket}`);
@@ -45,8 +54,14 @@ console.log('Is the basket full?', isFull());
 console.log('Adding pizza', addItem('pizza'));
 console.log('Adding burgers', addItem('burgers'));
 console.log('Adding salad', addItem('salad'));
+console.log('Basket is:', basket);
 console.log('Is the basket full?', isFull());
 console.log('Adding coffee', addItem('coffee'));
+console.log('Basket is:', basket);
+console.log('Removed item from basket is:', removeItem('pizza'));
+console.log('Basket is:', basket);
+
+
 
 
 
