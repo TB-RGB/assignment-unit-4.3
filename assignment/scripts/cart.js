@@ -2,10 +2,16 @@ console.log('***** Cart Functions *****');
 // Make sure to test all functions here in the JS file!
 // We want to see how you are testing your code!!!
 let basket = [];
+const maxItems = 5;
 
 function addItem(item){
-    basket.push(item);
-    return true;
+    if (isFull() === false){
+        basket.push(item);
+        return true;
+    } else if (isFull() === true){
+        console.log('The basket is full!');
+        return false;
+    }
 }
 
 function listItems(array){
@@ -14,8 +20,16 @@ function listItems(array){
 }
 
 function empty(array){
-    array.splice(0)
+    array.splice(0, array.length);
     return array;
+}
+
+function isFull(){
+    if (basket.length < maxItems){
+        return false;
+    } else if (basket.length >= maxItems){
+        return true;
+    }
 }
 
 console.log(`Basket is ${basket}`);
@@ -24,8 +38,19 @@ console.log(`Basket is ${basket}`);
 console.log('Adding subs', addItem('subs'));
 console.log('Adding wings', addItem('wings'));
 console.log('Basket is:', basket);
-console.log(empty(basket));
-console.log('Basket is:', basket);
+console.log('After emptying, the basket is now:',empty(basket));
+console.log('Adding wings', addItem('wings'));
+console.log('Adding tacos', addItem('tacos'));
+console.log('Is the basket full?', isFull());
+console.log('Adding pizza', addItem('pizza'));
+console.log('Adding burgers', addItem('burgers'));
+console.log('Adding salad', addItem('salad'));
+console.log('Is the basket full?', isFull());
+console.log('Adding coffee', addItem('coffee'));
+
+
+
+
 
 
 
