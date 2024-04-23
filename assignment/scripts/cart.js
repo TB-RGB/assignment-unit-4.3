@@ -15,7 +15,8 @@ function addItem(item){
 }
 /**
  * 
- * This loops through items in array and logs each value {*} array 
+ * This loops through items in basket and logs each value to a new line
+ * @returns basket as an array for logging
  */
 function listItems(){
     for (let item of basket){
@@ -24,22 +25,24 @@ function listItems(){
     return basket;
 }
 
-// function empty(array){
-//     array.splice(0, array.length);
-//     return array;
-// }
-
 /**
  * 
- * If the basket contains any amount of value, it will remove until empty;
+ * This begins to splice at basket array index 0 and deletes values up to the length of the array
+ * @returns basket after deletion(s) 
  */
 
 function empty(){
-    while (basket.length > 0){
-        basket.pop();
-    }
+    basket.splice(0, basket.length);
     return basket;
 }
+
+
+// function empty(){
+//     while (basket.length > 0){
+//         basket.pop();
+//     }
+//     return basket;
+// }
 
 function isFull(){
     if (basket.length < maxItems){
@@ -64,7 +67,7 @@ console.log(`Basket is ${basket}`);
 console.log('Adding subs', addItem('subs'));
 console.log('Adding wings', addItem('wings'));
 console.log('Basket is:',listItems());
-console.log('After emptying, the basket is now:',empty(basket));
+console.log('After emptying, the basket is now:', empty());
 console.log('Adding wings', addItem('wings'));
 console.log('Adding tacos', addItem('tacos'));
 console.log('Is the basket full?', isFull());
@@ -77,7 +80,7 @@ console.log('Adding coffee', addItem('coffee'));
 console.log('Basket is:',listItems());
 console.log('Removed item from basket is:', removeItem('pizza'));
 console.log('Basket is:',listItems());
-console.log('After emptying, the basket is now:',empty(basket));
+console.log('After emptying, the basket is now:', empty());
 
 
 
